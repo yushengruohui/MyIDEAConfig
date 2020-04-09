@@ -1,0 +1,23 @@
+<templateSet group="我的代码模板">
+  <template name="logw" value="&lt;!--================ $word$ ================--&gt;" description="网页代码块" toReformat="false" toShortenFQNames="true">
+    <variable name="word" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="JSP" value="true" />
+      <option name="MAVEN" value="true" />
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="logv" value="log.info(&quot;&gt;&gt;&gt;&gt; $EXPR_COPY$ = &quot; + $EXPR$+&quot; &lt;&lt;&lt;&lt;&quot;);" description="日志输出" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPR" expression="variableOfType(&quot;&quot;)" defaultValue="&quot;expr&quot;" alwaysStopAt="true" />
+    <variable name="EXPR_COPY" expression="escapeString(EXPR)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="logto" value="@Override&#10;public String toString() {&#10;    StringBuffer sb = new StringBuffer(300);&#10;    sb.append(this.getClass().getSimpleName()).append(&quot;{&quot;);&#10;    Field[] fields = this.getClass().getDeclaredFields();&#10;    try {&#10;        for (Field field : fields) {&#10;            field.setAccessible(true);&#10;            String modifier = Modifier.toString(field.getModifiers());&#10;            if (modifier.contains(&quot;static final&quot;)) {&#10;                continue;&#10;            }&#10;            sb.append(field.getName()).append(&quot;:&quot;).append(field.get(this)).append(&quot;,&quot;);&#10;        }&#10;    } catch (Exception e) {&#10;        e.printStackTrace();&#10;    }&#10;    sb.deleteCharAt(sb.lastIndexOf(&quot;,&quot;));&#10;    sb.append(&quot;}&quot;);&#10;    return sb.toString();&#10;}&#10;" description="重写toString" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

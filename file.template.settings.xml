@@ -1,0 +1,12 @@
+<application>
+  <component name="ExportableFileTemplateSettings">
+    <default_templates>
+      <template name="Java-controller.java" reformat="false" live-template-enabled="false" />
+      <template name="Java-lombok.java" reformat="false" live-template-enabled="false" />
+      <template name="JavaFXApplication.java" reformat="false" live-template-enabled="false" enabled="true" />
+    </default_templates>
+    <includes_templates>
+      <template name="File Header.java" reformat="true" live-template-enabled="true" enabled="true" />
+    </includes_templates>
+  </component>
+</application>

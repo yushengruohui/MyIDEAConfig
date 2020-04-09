@@ -1,0 +1,9 @@
+<templateSet group="Kotlin">
+  <template name="main" value="fun main(args: Array&lt;String&gt;) {&#10;  $END$&#10;}" description="main() function" toReformat="true" toShortenFQNames="true" />
+  <template name="soutv" value="println(&quot;$EXPR_COPY$ = $DOLLAR${$EXPR$}&quot;)" description="Prints a value to System.out" toReformat="true" toShortenFQNames="true">
+    <variable name="DOLLAR" expression="" defaultValue="&quot;$&quot;" alwaysStopAt="false" />
+    <variable name="EXPR" expression="kotlinVariable()" defaultValue="&quot;expr&quot;" alwaysStopAt="true" />
+    <variable name="EXPR_COPY" expression="EXPR" defaultValue="" alwaysStopAt="false" />
+  </template>
+  <template name="psvm" value="fun main(args: Array&lt;String&gt;) {&#10;  $END$&#10;}" description="main() function" toReformat="true" toShortenFQNames="true" />
+</templateSet>

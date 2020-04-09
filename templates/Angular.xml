@@ -1,0 +1,5 @@
+<templateSet group="Angular">
+  <template name="a-class" value="[class]=&quot;$expression$&quot;" description="Angular [class] binding" toReformat="true" toShortenFQNames="true">
+    <variable name="expression" expression="" defaultValue="&quot;expression&quot;" alwaysStopAt="true" />
+  </template>
+</templateSet>

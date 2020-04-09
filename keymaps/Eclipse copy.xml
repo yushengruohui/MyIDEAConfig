@@ -1,0 +1,45 @@
+<keymap version="1" name="Eclipse copy" parent="Eclipse">
+  <action id="Back">
+    <keyboard-shortcut first-keystroke="ctrl left" />
+  </action>
+  <action id="CollapseAll">
+    <keyboard-shortcut first-keystroke="ctrl subtract" />
+  </action>
+  <action id="CollapseAllRegions">
+    <keyboard-shortcut first-keystroke="ctrl minus" />
+  </action>
+  <action id="CollapseExpandableComponent">
+    <keyboard-shortcut first-keystroke="shift enter" />
+    <keyboard-shortcut first-keystroke="ctrl subtract" />
+  </action>
+  <action id="CollapseRegion">
+    <keyboard-shortcut first-keystroke="ctrl subtract" />
+  </action>
+  <action id="EditorLookupDown" />
+  <action id="EditorLookupUp" />
+  <action id="EditorNextWord" />
+  <action id="EditorPreviousWord" />
+  <action id="EditorScrollDown" />
+  <action id="EditorScrollUp" />
+  <action id="Forward">
+    <keyboard-shortcut first-keystroke="ctrl right" />
+  </action>
+  <action id="HideAllWindows">
+    <keyboard-shortcut first-keystroke="ctrl down" />
+  </action>
+  <action id="JumpToLastWindow">
+    <keyboard-shortcut first-keystroke="ctrl up" />
+  </action>
+  <action id="MethodOverloadSwitchDown" />
+  <action id="MethodOverloadSwitchUp" />
+  <action id="SearchEverywhere.NavigateToNextGroup">
+    <keyboard-shortcut first-keystroke="page_down" />
+  </action>
+  <action id="SearchEverywhere.NavigateToPrevGroup">
+    <keyboard-shortcut first-keystroke="page_up" />
+  </action>
+  <action id="Vcs.ReformatCommitMessage">
+    <keyboard-shortcut first-keystroke="ctrl alt l" />
+    <keyboard-shortcut first-keystroke="shift ctrl f" />
+  </action>
+</keymap>
