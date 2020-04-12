@@ -2,7 +2,7 @@
   <component name="EasyCodeSetting">
     <option name="author" value="yusheng" />
     <option name="currTemplateGroupName" value="self_mybatis_dao" />
-    <option name="currTypeMapperGroupName" value="self_mapper" />
+    <option name="currTypeMapperGroupName" value="self_mybatis" />
     <option name="globalConfigGroupMap">
       <map>
         <entry key="Default">
@@ -132,7 +132,7 @@
                     <option name="name" value="mapper.xml" />
                   </Template>
                   <Template>
-                    <option name="code" value="##引入宏定义&#10;$!define&#10;&#10;##使用宏定义设置回调（保存位置与文件后缀）&#10;#save(&quot;/domain/entity&quot;, &quot;.java&quot;)&#10;&#10;##使用宏定义设置包后缀&#10;#setPackageSuffix(&quot;domain.entity&quot;)&#10;&#10;##使用全局变量实现默认包导入&#10;$!autoImport&#10;import java.io.Serializable;&#10;import java.lang.reflect.Field;&#10;import java.lang.reflect.Modifier;&#10;&#10;##使用宏定义实现类注释信息&#10;#tableComment(&quot;表实体类&quot;)&#10;public class $!{tableInfo.name} implements Serializable {&#10;    private static final long serialVersionUID = 1L;&#10;#foreach($column in $tableInfo.fullColumn)&#10;&#10;#if(${column.comment})&#10;    /**&#10;     * ${column.comment}&#10;     */&#10;#end&#10;    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};&#10;#end&#10;&#10;#foreach($column in $tableInfo.fullColumn)&#10;##使用宏定义实现get,set方法&#10;    #getSetMethod($column)&#10;#end&#10;    &#10;    @Override&#10;    public String toString() {&#10;        StringBuffer sb = new StringBuffer(300);&#10;        sb.append(&quot;{&quot;);&#10;        Field[] fields = this.getClass().getDeclaredFields();&#10;        try {&#10;            for (Field field : fields) {&#10;                field.setAccessible(true);&#10;                String modifier = Modifier.toString(field.getModifiers());&#10;                if (modifier.contains(&quot;static final&quot;)) {&#10;                    continue;&#10;                }&#10;                sb.append(field.getName()).append(&quot;:&quot;).append(field.get(this)).append(&quot;,&quot;);&#10;            }&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;        sb.deleteCharAt(sb.lastIndexOf(&quot;,&quot;));&#10;        sb.append(&quot;}&quot;);&#10;        return sb.toString();&#10;    }&#10;}" />
+                    <option name="code" value="##引入宏定义&#10;$!define&#10;&#10;##使用宏定义设置回调（保存位置与文件后缀）&#10;#save(&quot;/domain/entity&quot;, &quot;.java&quot;)&#10;&#10;##使用宏定义设置包后缀&#10;#setPackageSuffix(&quot;domain.entity&quot;)&#10;&#10;##使用全局变量实现默认包导入&#10;$!autoImport&#10;import java.io.Serializable;&#10;import java.lang.reflect.Field;&#10;import java.lang.reflect.Modifier;&#10;&#10;##使用宏定义实现类注释信息&#10;#tableComment(&quot;表实体类&quot;)&#10;public class $!{tableInfo.name} implements Serializable {&#10;    private static final long serialVersionUID = 1L;&#10;#foreach($column in $tableInfo.fullColumn)&#10;&#10;#if(${column.comment})&#10;    /**&#10;     * ${column.comment}&#10;     */&#10;#end&#10;    private $!{tool.getClsNameByFullName($column.type)} $!{column.name};&#10;#end&#10;&#10;#foreach($column in $tableInfo.fullColumn)&#10;##使用宏定义实现get,set方法&#10;    #getSetMethod($column)&#10;#end&#10;    &#10;    @Override&#10;    public String toString() {&#10;        StringBuffer sb = new StringBuffer(300);&#10;        sb.append(&quot;{&quot;);&#10;        Field[] fields = this.getClass().getDeclaredFields();&#10;        try {&#10;            for (Field field : fields) {&#10;                field.setAccessible(true);&#10;                String modifier = Modifier.toString(field.getModifiers());&#10;                if (modifier.contains(&quot;static final&quot;)) {&#10;                    continue;&#10;                }&#10;                String typeName = field.getGenericType().getTypeName();&#10;                if (&quot;java.lang.String&quot;.equals(typeName) || &quot;java.utils.Date&quot;.equals(typeName)) {&#10;                    sb.append(field.getName()).append(&quot;:\&quot;&quot;).append(field.get(this)).append(&quot;\&quot;,&quot;);&#10;                } else {&#10;                    sb.append(field.getName()).append(&quot;:&quot;).append(field.get(this)).append(&quot;,&quot;);&#10;                }&#10;            }&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;        sb.deleteCharAt(sb.lastIndexOf(&quot;,&quot;));&#10;        sb.append(&quot;}&quot;);&#10;        return sb.toString();&#10;    }&#10;}" />
                     <option name="name" value="entity.java" />
                   </Template>
                   <Template>
@@ -281,16 +281,8 @@
                     <option name="javaType" value="java.lang.String" />
                   </TypeMapper>
                   <TypeMapper>
-                    <option name="columnType" value="decimal(\(\d+\))?" />
+                    <option name="columnType" value="decimal(\(\d+\))?(\(\d+,\d+\))?" />
                     <option name="javaType" value="java.lang.String" />
-                  </TypeMapper>
-                  <TypeMapper>
-                    <option name="columnType" value="decimal(\(\d+,\d+\))?" />
-                    <option name="javaType" value="java.lang.String" />
-                  </TypeMapper>
-                  <TypeMapper>
-                    <option name="columnType" value="integer" />
-                    <option name="javaType" value="java.lang.Integer" />
                   </TypeMapper>
                   <TypeMapper>
                     <option name="columnType" value="int(\(\d+\))?" />
@@ -339,6 +331,61 @@
                 </list>
               </option>
               <option name="name" value="self_mapper" />
+            </TypeMapperGroup>
+          </value>
+        </entry>
+        <entry key="self_mybatis">
+          <value>
+            <TypeMapperGroup>
+              <option name="elementList">
+                <list>
+                  <TypeMapper>
+                    <option name="columnType" value="varchar(\(\d+\))?" />
+                    <option name="javaType" value="java.lang.String" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="char(\(\d+\))?" />
+                    <option name="javaType" value="java.lang.Object" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="int(\(\d+\))?" />
+                    <option name="javaType" value="java.lang.Integer" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="int(\(\d+\))? unsigned" />
+                    <option name="javaType" value="java.lang.Long" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="tinyint(\(\d+\))?( unsigned)?" />
+                    <option name="javaType" value="java.lang.Integer" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="decimal(\(\d+\))?(\(\d+,\d+\))?" />
+                    <option name="javaType" value="java.math.BigDecimal" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="date" />
+                    <option name="javaType" value="java.sql.Date" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="datetime" />
+                    <option name="javaType" value="java.sql.Timestamp" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="timestamp" />
+                    <option name="javaType" value="java.sql.Timestamp" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="boolean" />
+                    <option name="javaType" value="java.lang.Boolean" />
+                  </TypeMapper>
+                  <TypeMapper>
+                    <option name="columnType" value="bit" />
+                    <option name="javaType" value="java.lang.Boolean" />
+                  </TypeMapper>
+                </list>
+              </option>
+              <option name="name" value="self_mybatis" />
             </TypeMapperGroup>
           </value>
         </entry>
