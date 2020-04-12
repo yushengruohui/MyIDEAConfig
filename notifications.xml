@@ -2,6 +2,7 @@
   <component name="NotificationConfiguration">
     <notification groupId="Framework Detection" shouldLog="false" />
     <notification groupId="Framework Plugins" shouldLog="false" />
+    <notification groupId="Json Parser" shouldLog="false" />
     <notification groupId="Spring Configuration Check" displayType="STICKY_BALLOON" shouldLog="false" />
   </component>
 </application>
