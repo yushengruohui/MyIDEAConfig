@@ -1,4 +1,7 @@
 <application>
+  <component name="CodeFoldingSettings">
+    <option name="COLLAPSE_DOC_COMMENTS" value="true" />
+  </component>
   <component name="CodeInsightSettings">
     <option name="selectAutopopupSuggestionsByChars" value="true" />
     <option name="PARAMETER_INFO_DELAY" value="200" />
@@ -19,6 +22,13 @@
   <component name="EditorSettings">
     <option name="USE_SOFT_WRAPS" value="CONSOLE" />
     <option name="SOFT_WRAP_FILE_MASKS" value="*" />
+    <option name="SHOW_QUICK_DOC_ON_MOUSE_OVER_ELEMENT" value="false" />
+    <option name="ENABLE_RENDERED_DOC" value="true" />
     <option name="IS_ALL_SOFTWRAPS_SHOWN" value="true" />
+  </component>
+  <component name="JavaCodeFoldingSettings">
+    <option name="collapseAnnotations" value="true" />
+    <option name="collapseEndOfLineComments" value="true" />
+    <option name="collapseMultilineComments" value="true" />
   </component>
 </application>
