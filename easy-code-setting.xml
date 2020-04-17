@@ -2,7 +2,7 @@
   <component name="EasyCodeSetting">
     <option name="author" value="yusheng" />
     <option name="currGlobalConfigGroupName" value="self-global-config" />
-    <option name="currTemplateGroupName" value="self_mybatis_mapper" />
+    <option name="currTemplateGroupName" value="self_mybatis_dao" />
     <option name="currTypeMapperGroupName" value="self-mybatis-map" />
     <option name="globalConfigGroupMap">
       <map>
