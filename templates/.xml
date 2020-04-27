@@ -8,7 +8,7 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="logn" value="private static final Logger log = LoggerFactory.getLogger($ClassName$.class);" description="建立日志对象" toReformat="true" toShortenFQNames="true">
+  <template name="nlog" value="private static final Logger log = LoggerFactory.getLogger($ClassName$.class);" description="建立日志对象" toReformat="true" toShortenFQNames="true">
     <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="false" />
     <context>
       <option name="JAVA_CODE" value="true" />
