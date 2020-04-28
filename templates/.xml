@@ -15,4 +15,13 @@
       <option name="JAVA_STRING" value="false" />
     </context>
   </template>
+  <template name="logv" value="log.info(&quot;$EXPR_COPY$ = {}&quot; , $EXPR$);" description="Prints a value to log" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPR" expression="variableOfType(&quot;&quot;)" defaultValue="&quot;expr&quot;" alwaysStopAt="true" />
+    <variable name="EXPR_COPY" expression="escapeString(EXPR)" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
 </templateSet>
