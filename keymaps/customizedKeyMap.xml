@@ -124,6 +124,9 @@
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="f2" />
   </action>
+  <action id="RevealIn">
+    <keyboard-shortcut first-keystroke="ctrl f1" />
+  </action>
   <action id="RunDashboard.CopyConfiguration" />
   <action id="SearchEverywhere.NavigateToNextGroup">
     <keyboard-shortcut first-keystroke="page_down" />
