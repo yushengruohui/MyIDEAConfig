@@ -8,10 +8,19 @@
       <option name="XML" value="true" />
     </context>
   </template>
-  <template name="logv" value="log.info(&quot;&gt;&gt;&gt;&gt; $EXPR_COPY$ = &quot; + $EXPR$+&quot; &lt;&lt;&lt;&lt;&quot;);" description="日志输出" toReformat="true" toShortenFQNames="true">
+  <template name="nlog" value="private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger($ClassName$.class);" description="建立日志对象" toReformat="true" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="logv" value="log.info(&quot;$EXPR_COPY$ = {}&quot; , $EXPR$);" description="Prints a value to log" toReformat="true" toShortenFQNames="true">
     <variable name="EXPR" expression="variableOfType(&quot;&quot;)" defaultValue="&quot;expr&quot;" alwaysStopAt="true" />
     <variable name="EXPR_COPY" expression="escapeString(EXPR)" defaultValue="" alwaysStopAt="false" />
     <context>
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
       <option name="JAVA_STATEMENT" value="true" />
     </context>
   </template>
